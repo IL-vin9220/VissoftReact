@@ -5,9 +5,10 @@ import Form from './Form'
 function Content() {
 
   let employeeCode_1 = [];
-  let employeeCode_3 = [];
+  // let employeeCode_3 = [];
   const [employeeId, setemployeeId] = useState('');
   const [employeeId3, setemployeeId3] = useState('');
+  const [array3, setArray3] = useState([]);
   const [message1, setMessage1] = useState('');
   const [message2, setMessage2] = useState('');
 
@@ -32,10 +33,9 @@ function Content() {
     else if(employeeId3.length<8){setMessage2("Mã Nhân Viên Không Được Ngắn Hơn 8 Ký Tự");}
     else if(employeeId3.length>16){setMessage2("Mã Nhân Viên Không Được Dài Hơn 16 Ký Tự")}
     else{
-      employeeCode_3.push(employeeId3);
+      setArray3(item => [...item, employeeId3]);
       setMessage2("Thêm Mã Nhân Viên Thành Công");
     }
-    console.log(employeeCode_3);
   }
 
     return (
@@ -63,7 +63,7 @@ function Content() {
             <button type="submit" className={style.btn}>Submit</button>
           </form>
           {message2 && <p className={style.message}>{message2}</p>}
-          {employeeCode_3.map(item => (<p key={item}>{item}</p>))}
+          {array3.map(item => (<p key={item}>{item}</p>))}
         </div>
       </div>
     );
