@@ -1,0 +1,19 @@
+.header{
+    width: calc(100% - 200px);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__left{
+    width: 75%;
+    height: 100%;
+    background-color: red;
+}
+
+.header__right{
+    flex: 1;
+    height: 100%;
+    background-color: aqua;
+}
